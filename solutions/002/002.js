@@ -1,3 +1,5 @@
+var init = new Date().getTime();
+
 var result = 0;
 
 var n = 2, n_1 = 1;
@@ -13,3 +15,6 @@ for(;  n <= 4e6; ) {
 }
 
 console.log(result);
+
+var execution_time = (new Date().getTime() - init) / 1000;
+console.log('executed in ' + execution_time + 's');

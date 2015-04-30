@@ -1,3 +1,5 @@
+var init = new Date().getTime();
+
 var largest = 0;
 
 for(var a = 999; a >= 100; a--) {
@@ -23,3 +25,6 @@ function is_palindrome(n) {
 
 	return true;
 }
+
+var execution_time = (new Date().getTime() - init) / 1000;
+console.log('executed in ' + execution_time + 's');

@@ -1,3 +1,5 @@
+var init = new Date().getTime();
+
 var num = 600851475143;
 
 for(var p = 3; ;) {
@@ -26,3 +28,6 @@ function is_prime(n) {
 
 	return true;
 }
+
+var execution_time = (new Date().getTime() - init) / 1000;
+console.log('executed in ' + execution_time + 's');
