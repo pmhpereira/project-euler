@@ -1,4 +1,6 @@
 @echo off
+setlocal EnableDelayedExpansion
+
 echo.
 
 WHERE /Q node
@@ -9,15 +11,20 @@ IF errorlevel == 1 (
 	echo.
 ) ELSE (
 	IF "%1"=="" (
-		echo Usage: solution ^<# problem^>
+		set /p arg1="# problem: "
 	) ELSE (
-		IF EXIST "solutions\%1\%1.js" (
-			node < solutions\%1\%1.js
-			echo.
-			PAUSE
-		) ELSE (
-			echo Solution for problem %1 is missing. Aborting...
-		)
+		set arg1=%1
+	)
+
+	set "problem=000!arg1!"
+	set "problem=!problem:~-3!"
+
+	IF EXIST "solutions\!problem!\!problem!.js" (
+		node < solutions\!problem!\!problem!.js
+		echo.
+		PAUSE
+	) ELSE (
+		echo Solution for problem !arg1! is missing. Aborting...
 	)
 
 	echo.
