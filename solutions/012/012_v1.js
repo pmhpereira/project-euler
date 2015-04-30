@@ -7,24 +7,17 @@ triangle:
 for(var i = 1; ; i++) {
 	tri += i;
 
-	var count = 0;
-	var f = 1;
+	var count = 1;
 
-	var sqrt_tri = Math.floor(tri);
-	for(f = 1; f <= Math.sqrt(tri); f++) {
+	for(var f = 1; f <= tri / 2; f++) {
 		if(tri % f == 0) {
-			count += 2;
+			count++;
 		}
 
-	}
-
-	if(tri == sqrt_tri*sqrt_tri) {
-		count--;
-	}
-	
-	if(count > min_divisors) {
-		console.log(tri);
-		break triangle;
+		if(count > min_divisors) {
+			console.log(tri);
+			break triangle;
+		}
 	}
 }
 
