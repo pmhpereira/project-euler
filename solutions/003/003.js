@@ -20,7 +20,7 @@ for(var p = 3; ;) {
 }
 
 function is_prime(n) {
-	for(var f = 3; f < Math.sqrt(n); f += 2) {
+	for(var f = 3; f <= Math.sqrt(n); f += 2) {
 		if(n % f == 0) {
 			return false;
 		}
